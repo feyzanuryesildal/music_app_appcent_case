@@ -26,7 +26,8 @@ class ItemListViewHolder (itemView : View): RecyclerView.ViewHolder(itemView) {
         image.isClickable = true
         image.setOnClickListener {
             Log.e("kontrol","tıklandı") // çalıştı
-
+            val intent = Intent(itemView.context, GenreDetayActivity::class.java)
+            itemView.context.startActivity(intent)
 
         }
     }

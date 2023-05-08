@@ -1,10 +1,12 @@
 package com.example.music_app_appcent_case.adapter
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.cardview.widget.CardView
 import androidx.appcompat.widget.AppCompatTextView
+import com.example.music_app_appcent_case.GenreDetayActivity
 import com.example.music_app_appcent_case.R
 import com.example.music_app_appcent_case.model.ItemModel
 
@@ -26,7 +28,6 @@ class AlbumGenreAdapter (val itemList: ArrayList<ItemModel>) :
 
     override fun onBindViewHolder(holder: ItemListViewHolder, position: Int) {
         holder.bindItems(itemList[position])
-
 
     }
 }
