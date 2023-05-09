@@ -18,32 +18,24 @@ import com.example.music_app_appcent_case.model.MockList
 import com.example.music_app_appcent_case.viewModel.GenreViewModel
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var productViewModel: GenreViewModel
-    private lateinit var productsRecyclerView: RecyclerView
-    private lateinit var productsAdapter: AlbumGenreAdapter
+    private lateinit var genreViewModel: GenreViewModel
+    private lateinit var genreRecyclerView: RecyclerView
+    private lateinit var genreAdapter: AlbumGenreAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         setTitle("Kategori")
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        /*
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-        recyclerView.layoutManager = GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false)
 
-        val adapter =
-            AlbumGenreAdapter(MockList.getMockedItemList() as ArrayList<ItemModel>)
+        genreRecyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        genreRecyclerView.layoutManager = GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false)
+        genreViewModel = ViewModelProvider(this).get(GenreViewModel::class.java)
+        genreViewModel.getApiData()
 
-        recyclerView.adapter= adapter */
-
-        productsRecyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-        productsRecyclerView.layoutManager = GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false)
-        productViewModel = ViewModelProvider(this).get(GenreViewModel::class.java)
-        productViewModel.getApiData()
-
-        productViewModel.productListData.observe(this){
-            productsAdapter = AlbumGenreAdapter(it)
+        genreViewModel.productListData.observe(this){
+            genreAdapter = AlbumGenreAdapter(it)
             //productsRecyclerView.layoutManager = LinearLayoutManager(this)
-            productsRecyclerView.adapter = productsAdapter
+            genreRecyclerView.adapter = genreAdapter
 
         }
 

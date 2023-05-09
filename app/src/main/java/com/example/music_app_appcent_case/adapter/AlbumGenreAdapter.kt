@@ -21,13 +21,7 @@ class AlbumGenreAdapter (private val products: GenreModel) : RecyclerView.Adapte
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val product = products.data[position]
-
-
         holder.bind(product)
-
-
-
-
     }
 
     override fun getItemCount(): Int = products.data.size

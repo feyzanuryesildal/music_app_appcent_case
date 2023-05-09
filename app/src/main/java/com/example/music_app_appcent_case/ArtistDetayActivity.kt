@@ -16,12 +16,14 @@ class ArtistDetayActivity : AppCompatActivity() {
         setContentView(R.layout.activity_artist_detay)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
+
+        /*
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView3)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         val adapter =
             ArtistDetayAdapter(MockList.getMockedItemList() as ArrayList<ItemModel>)
 
-        recyclerView.adapter= adapter
+        recyclerView.adapter= adapter*/
     }
 }
