@@ -23,6 +23,7 @@ class GenreDetayActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_genre_detay)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        setTitle("Sanatçılar")
 
         val gelenVeri = intent.getIntExtra("product.id", 0)
         if (gelenVeri != null) {

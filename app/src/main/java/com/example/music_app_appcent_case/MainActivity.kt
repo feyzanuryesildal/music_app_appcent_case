@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var genreRecyclerView: RecyclerView
     private lateinit var genreAdapter: AlbumGenreAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
-        setTitle("Kategori")
+        setTitle("Kategoriler")
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

@@ -6,18 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.music_app_appcent_case.GenreDetayActivity
+import com.example.music_app_appcent_case.ArtistDetayActivity
+import com.example.music_app_appcent_case.MusicDetayActivity
 import com.example.music_app_appcent_case.R
-import com.example.music_app_appcent_case.model.Data
-import com.example.music_app_appcent_case.model.GenreModel
-import com.example.music_app_appcent_case.model.ItemModel
+import com.example.music_app_appcent_case.model.model2.ArtistModel
+import com.example.music_app_appcent_case.model.model2.Data
 
-class ArtistDetayAdapter (private val products: GenreModel) : RecyclerView.Adapter<ArtistDetayAdapter.ViewHolder>() {
+
+class ArtistDetayAdapter (private val products: ArtistModel) : RecyclerView.Adapter<ArtistDetayAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.album_genre_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.artist_detay_item, parent, false)
         return ViewHolder(view)
     }
 
@@ -28,28 +31,41 @@ class ArtistDetayAdapter (private val products: GenreModel) : RecyclerView.Adapt
 
     override fun getItemCount(): Int = products.data.size
 
+
+
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        //private val titleTextView: TextView = itemView.findViewById(R.id.productName)
-        //private val priceTextView: TextView = itemView.findViewById(R.id.productPrice)
-        private val productImageView: ImageView = itemView.findViewById(R.id.image)
+        private val productImageView: ImageView = itemView.findViewById(R.id.imageView3)
+        //private val ImageView: ImageView = itemView.findViewById(R.id.imageViewAristDetay)
+        private val artistName: TextView = itemView.findViewById(R.id.artistName)
+        private val card: CardView = itemView.findViewById(R.id.card_view_artist)
 
         fun bind(product: Data) {
-            //titleTextView.text = product.title
-            //priceTextView.text = product.price.toString()
-            //GlideToVectorYou.justLoadImage(activity, Uri.parse(product.image),productImageView)
-            //Glide.with(itemView.context.load(product.image).into(productImageView)
-
+            artistName.text = product.title
             Glide.with(productImageView.getContext())
-                .load(product.picture_medium)
+                .load(product.cover_medium)
                 .into(productImageView)
+
+            /*Glide.with(ImageView.getContext())
+                .load(product.cover_medium)
+                .into(productImageView)*/
 
             productImageView.isClickable = true
             productImageView.setOnClickListener {
-                Log.e("kontrol","tıklandı") // çalıştı
-                val intent = Intent(itemView.context, GenreDetayActivity::class.java)
-                intent.putExtra("product.id", product.id)
+                Log.e("kontrol","tıklandı33") // çalıştı
+                val intent = Intent(itemView.context, MusicDetayActivity::class.java)
+                intent.putExtra("album.id", product.id)
                 itemView.context.startActivity(intent)
-                Log.e("kontrol",product.name)
+
+                Log.e("kontrol","${product.id}")
+
+            }
+            card.setOnClickListener {
+                Log.e("kontrol","tıklandı33") // çalıştı
+                val intent = Intent(itemView.context, MusicDetayActivity::class.java)
+                intent.putExtra("album.id", product.id)
+                itemView.context.startActivity(intent)
+
                 Log.e("kontrol","${product.id}")
 
             }
