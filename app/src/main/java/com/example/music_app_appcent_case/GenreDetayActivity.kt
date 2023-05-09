@@ -1,6 +1,7 @@
 package com.example.music_app_appcent_case
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +16,14 @@ class GenreDetayActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_genre_detay)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+
+        val gelenVeri = intent.getIntExtra("product.id",0)
+        if (gelenVeri != null) {
+            Log.e("kontrol veri","${gelenVeri}")
+        } else {
+            Log.e("kontrol veri"," null dönndü")
+        }
+
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView2)
         recyclerView.layoutManager = GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false)
