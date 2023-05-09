@@ -12,10 +12,13 @@
         android:theme="@style/Theme.Music_app_appcent_case"
         tools:targetApi="31">
         <activity
+            android:name=".ArtistDetayActivity"
+            android:exported="true"
+            android:parentActivityName=".GenreDetayActivity" />
+        <activity
             android:name=".GenreDetayActivity"
-            android:exported="false"
-            android:label="@string/title_activity_genre_detay"
-            android:theme="@style/Theme.Music_app_appcent_case.NoActionBar" />
+            android:exported="true"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
