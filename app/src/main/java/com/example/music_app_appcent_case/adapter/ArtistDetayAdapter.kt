@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
@@ -39,6 +40,8 @@ class ArtistDetayAdapter (private val products: ArtistModel) : RecyclerView.Adap
         //private val ImageView: ImageView = itemView.findViewById(R.id.imageViewAristDetay)
         private val artistName: TextView = itemView.findViewById(R.id.artistName)
         private val card: CardView = itemView.findViewById(R.id.card_view_artist)
+        private val heartButton: ImageButton = itemView.findViewById(R.id.imageButtonKalp)
+        private var isLiked = false
 
         fun bind(product: Data) {
             artistName.text = product.title
@@ -65,6 +68,20 @@ class ArtistDetayAdapter (private val products: ArtistModel) : RecyclerView.Adap
                 itemView.context.startActivity(intent)
 
                 Log.e("kontrol","${product.id}")
+
+            }
+
+            heartButton.setOnClickListener {
+                if (isLiked) {
+                    heartButton.setImageResource(R.drawable.kalp)
+                    Log.e("button","tiklandi kalp")
+                    isLiked = false
+                } else {
+                    heartButton.setImageResource(R.drawable.kalpkirmizi)
+                    Log.e("button","tiklandi kirmizi kalp")
+                    isLiked = true
+                }
+
 
             }
 

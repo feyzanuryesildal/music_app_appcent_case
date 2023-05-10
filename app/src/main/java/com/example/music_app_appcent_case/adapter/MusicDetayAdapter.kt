@@ -6,6 +6,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
@@ -38,6 +40,9 @@ class MusicDetayAdapter(private val products: MusicDetayModel) : RecyclerView.Ad
         private val productImageView: ImageView = itemView.findViewById(R.id.imageViewMusic)
         private val artistName: TextView = itemView.findViewById(R.id.artistNameMusic)
         private val card: CardView = itemView.findViewById(R.id.card_view_music)
+        private val heartButton: ImageButton = itemView.findViewById(R.id.imageButtonKalp2)
+        private var isLiked = false
+
 
         fun bind(product: Data) {
             artistName.text = product.title
@@ -54,7 +59,7 @@ class MusicDetayAdapter(private val products: MusicDetayModel) : RecyclerView.Ad
                 mediaPlayer.setDataSource(product.preview)
                 mediaPlayer.prepare()
                 mediaPlayer.start()
-                Log.e("kontrol","muzik çaldı")
+                Log.e("kontrol", "muzik çaldı")
             }
 
             card.setOnClickListener {
@@ -62,7 +67,21 @@ class MusicDetayAdapter(private val products: MusicDetayModel) : RecyclerView.Ad
                 mediaPlayer.setDataSource(product.preview)
                 mediaPlayer.prepare()
                 mediaPlayer.start()
-                Log.e("kontrol","muzik çaldı")
+                Log.e("kontrol", "muzik çaldı")
+
+            }
+
+            heartButton.setOnClickListener {
+            if (isLiked) {
+                heartButton.setImageResource(R.drawable.kalp)
+                Log.e("button","tiklandi kalp")
+                isLiked = false
+            } else {
+                heartButton.setImageResource(R.drawable.kalpkirmizi)
+                Log.e("button","tiklandi kirmizi kalp")
+                isLiked = true
+            }
+
 
             }
 

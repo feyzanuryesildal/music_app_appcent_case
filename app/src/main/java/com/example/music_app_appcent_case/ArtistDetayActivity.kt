@@ -25,7 +25,7 @@ class ArtistDetayActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_artist_detay)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-
+        setTitle("Albümler")
         val gelenVeri2 = intent.getIntExtra("artist.id", 0)
         if (gelenVeri2 != null) {
             Log.e("kontrol veri", "${gelenVeri2}")

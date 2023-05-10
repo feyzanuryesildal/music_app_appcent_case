@@ -19,6 +19,7 @@ class MusicDetayActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_music_detay)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        setTitle("Müzikler")
 
         val gelenVeri3 = intent.getIntExtra("album.id", 0)
         if (gelenVeri3 != null) {
