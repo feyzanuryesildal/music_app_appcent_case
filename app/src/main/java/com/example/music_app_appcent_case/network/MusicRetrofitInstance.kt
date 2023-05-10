@@ -4,7 +4,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object MusicDetayRetrofitInstance {
-    fun getMusicDetayRetrofitInstance() : MusicService {
+    /*fun getMusicDetayRetrofitInstance() : MusicService {
         var retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -12,5 +12,14 @@ object MusicDetayRetrofitInstance {
 
         return retrofit.create(MusicService::class.java)
 
+    }*/
+
+    fun getMusicDetayRetrofitInstance() : MusicService {
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(MusicService::class.java)
     }
+
 }

@@ -4,29 +4,28 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-
 import com.example.music_app_appcent_case.model.modelMusic.MusicModel
-import com.example.music_app_appcent_case.network.ArtistDetayRetrofitInstance
+import com.example.music_app_appcent_case.model.musicDetayModel.MusicDetayModel
 import com.example.music_app_appcent_case.network.MusicDetayRetrofitInstance
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class MusicDetayViewModel : ViewModel(){
-    private val productList = MutableLiveData<MusicModel> ()
-    val productListData: LiveData<MusicModel> get() = productList
+    private val productList = MutableLiveData<MusicDetayModel> ()
+    val productListData: LiveData<MusicDetayModel> get() = productList
 
 
     fun getMusicDetayApiData(id: Int){
 
         MusicDetayRetrofitInstance.getMusicDetayRetrofitInstance().getMusicDataFromApi(id).enqueue(object :
-            Callback<MusicModel> {
+            Callback<MusicDetayModel> {
             override fun onResponse(
-                call: Call<MusicModel>,
-                response: Response<MusicModel>
+                call: Call<MusicDetayModel>,
+                response: Response<MusicDetayModel>
             ) {
                 if (response.isSuccessful) {
-                    Log.d("Service", "Succsesaaaaaaaaaaaaaaaaaa")
+                    Log.d("Service", "Succses music detay")
                     response.body()?.let {
                         Log.d("Service", "Body")
                         productList.postValue(it)
@@ -40,7 +39,7 @@ class MusicDetayViewModel : ViewModel(){
 
             }
 
-            override fun onFailure(call: Call<MusicModel>, t: Throwable) {
+            override fun onFailure(call: Call<MusicDetayModel>, t: Throwable) {
                 Log.d("Service", "Failed: ${t.message}")
 
             }
