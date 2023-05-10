@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.music_app_appcent_case.model.modelMusic.MusicModel
 import com.example.music_app_appcent_case.model.musicDetayModel.MusicDetayModel
 import com.example.music_app_appcent_case.network.MusicDetayRetrofitInstance
 import retrofit2.Call

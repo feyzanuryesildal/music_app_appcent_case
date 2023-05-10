@@ -46,9 +46,7 @@ class ArtistDetayAdapter (private val products: ArtistModel) : RecyclerView.Adap
                 .load(product.cover_medium)
                 .into(productImageView)
 
-            /*Glide.with(ImageView.getContext())
-                .load(product.cover_medium)
-                .into(productImageView)*/
+
 
             productImageView.isClickable = true
             productImageView.setOnClickListener {
