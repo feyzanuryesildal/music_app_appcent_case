@@ -1,5 +1,6 @@
 package com.example.music_app_appcent_case.adapter
 
+import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
@@ -18,7 +19,7 @@ import com.example.music_app_appcent_case.model.model2.ArtistModel
 import com.example.music_app_appcent_case.model.model2.Data
 
 
-class ArtistDetayAdapter (private val products: ArtistModel) : RecyclerView.Adapter<ArtistDetayAdapter.ViewHolder>() {
+class ArtistDetayAdapter (private val products: ArtistModel,private val context: Context) : RecyclerView.Adapter<ArtistDetayAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.artist_detay_item, parent, false)
@@ -43,11 +44,21 @@ class ArtistDetayAdapter (private val products: ArtistModel) : RecyclerView.Adap
         private val heartButton: ImageButton = itemView.findViewById(R.id.imageButtonKalp)
         private var isLiked = false
 
+        val artistImageView = ImageView(context).findViewById<ImageView>(R.id.imageViewArtistDetayKapak)
+
         fun bind(product: Data) {
             artistName.text = product.title
             Glide.with(productImageView.getContext())
                 .load(product.cover_medium)
                 .into(productImageView)
+            if(artistImageView != null){
+                Glide.with(artistImageView.getContext())
+                    .load(product.cover_medium)
+                    .into(artistImageView)
+            }else{
+                artistImageView?.setImageResource(R.drawable.kalpkirmizi)
+            }
+
 
 
 

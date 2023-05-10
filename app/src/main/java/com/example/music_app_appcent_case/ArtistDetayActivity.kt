@@ -1,5 +1,6 @@
 package com.example.music_app_appcent_case
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -39,7 +40,7 @@ class ArtistDetayActivity : AppCompatActivity() {
         artistDetayViewModel = ViewModelProvider(this).get(ArtistDetayViewModel::class.java)
         artistDetayViewModel.getArtistDetayApiData(gelenVeri2)
 
-        artistDetayViewModel.productListData.observe(this){ artistDetayAdapter = ArtistDetayAdapter(it)
+        artistDetayViewModel.productListData.observe(this){ artistDetayAdapter = ArtistDetayAdapter(it,this)
             artistDetayRecyclerView.layoutManager = LinearLayoutManager(this)
             artistDetayRecyclerView.adapter = artistDetayAdapter
 
