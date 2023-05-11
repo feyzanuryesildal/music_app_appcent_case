@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="MusicList"
+        android:id="@+id/MusicList"
+        android:icon="@drawable/baseline_queue_music_24"
+        />
+    <item android:title="LikedList"
+        android:id="@+id/LikedList"
+        android:icon="@drawable/baseline_favorite_24"/>
+</menu>
