@@ -46,7 +46,10 @@ class MusicGenreListFragment : Fragment(R.layout.fragment_music_genre_list) {
             Log.d("xxxxxx",it.data.size.toString())
             genreAdapter = AlbumGenreAdapter(it)
             binding?.fragmentRecyclerview?.adapter = genreAdapter
-            binding?.fragmentRecyclerview?.layoutManager = LinearLayoutManager(context)
+            //binding?.fragmentRecyclerview?.layoutManager = LinearLayoutManager(context)
+            binding?.fragmentRecyclerview?.layoutManager = GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
+            /*genreDetayRecyclerView.layoutManager =
+            GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false)*/
         }
 
     }
