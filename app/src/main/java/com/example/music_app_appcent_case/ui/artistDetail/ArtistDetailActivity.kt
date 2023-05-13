@@ -2,7 +2,6 @@ package com.example.music_app_appcent_case.ui.artistDetail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,20 +17,14 @@ class ArtistDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_artist_detay)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         setTitle("Albümler")
-        val gelenVeri2 = intent.getIntExtra("artist.id", 0)
-        if (gelenVeri2 != null) {
-            Log.e("kontrol veri", "${gelenVeri2}")
-        } else {
-            Log.e("kontrol veri", " null dönndü")
-        }
-
+        val gelenVeriArtistDetail = intent.getIntExtra("artist.id", 0)
 
         artistDetayRecyclerView = findViewById<RecyclerView>(R.id.recyclerView3)
        // artistDetayRecyclerView.layoutManager = GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false)
         artistDetayViewModel = ViewModelProvider(this).get(ArtistDetailViewModel::class.java)
-        artistDetayViewModel.getArtistDetayApiData(gelenVeri2)
+        artistDetayViewModel.getArtistDetayApiData(gelenVeriArtistDetail)
 
-        artistDetayViewModel.productListData.observe(this){ artistDetayAdapter = ArtistDetailAdapter(it,this)
+        artistDetayViewModel.artistDetailListData.observe(this){ artistDetayAdapter = ArtistDetailAdapter(it,this)
             artistDetayRecyclerView.layoutManager = LinearLayoutManager(this)
             artistDetayRecyclerView.adapter = artistDetayAdapter
 

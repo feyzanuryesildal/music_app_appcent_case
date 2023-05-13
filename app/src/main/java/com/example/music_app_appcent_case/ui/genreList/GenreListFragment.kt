@@ -32,7 +32,7 @@ class GenreListFragment : Fragment(R.layout.fragment_music_genre_list) {
     }
 
     fun observeViewModel(){
-        viewModel.productListData.observe(viewLifecycleOwner){
+        viewModel.genreListData.observe(viewLifecycleOwner){
             Log.d("xxxxxx",it.data.size.toString())
             genreAdapter = GenreListAdapter(it)
             binding?.fragmentRecyclerview?.adapter = genreAdapter

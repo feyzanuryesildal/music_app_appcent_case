@@ -31,10 +31,10 @@ class MusicDetailAdapter(
     override fun getItemCount(): Int = musicList.size
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val productImageView: ImageView = itemView.findViewById(R.id.imageViewMusic)
+        private val musicDetailImageView: ImageView = itemView.findViewById(R.id.imageViewMusic)
         private val artistName: TextView = itemView.findViewById(R.id.artistNameMusic)
         private val card: CardView = itemView.findViewById(R.id.card_view_music)
-        private val heartButton: ImageButton = itemView.findViewById(R.id.imageButtonKalp2)
+        private val heartButton: ImageButton = itemView.findViewById(R.id.imageButton2)
         private var isLiked = false
 
         fun bind(
@@ -42,7 +42,6 @@ class MusicDetailAdapter(
             heartClickListener: RowClickListener<MusicDetailData>,
             position: Int
         ) {
-
             artistName.text = music.title
             heartButton.setOnClickListener{
                 heartClickListener.onRowClick(position,music)
@@ -54,39 +53,31 @@ class MusicDetailAdapter(
 
             val mediaPlayer = MediaPlayer()
 
-            productImageView.isClickable = true
-            productImageView.setOnClickListener {
+            musicDetailImageView.isClickable = true
+            musicDetailImageView.setOnClickListener {
                 mediaPlayer.setDataSource(music.preview)
                 mediaPlayer.prepare()
                 mediaPlayer.start()
-                Log.e("kontrol", "muzik çaldı")
+                Log.d("kontrol", "muzik çaldı")
             }
 
             card.setOnClickListener {
-
                 mediaPlayer.setDataSource(music.preview)
                 mediaPlayer.prepare()
                 mediaPlayer.start()
-                Log.e("kontrol", "muzik çaldı")
-
+                Log.d("kontrol", "muzik çaldı")
             }
 
 
             heartButton.setOnClickListener {
-
             if (isLiked) {
-                heartButton.setImageResource(R.drawable.kalp)
-                Log.e("button","tiklandi kalp")
+                heartButton.setImageResource(R.drawable.heart)
                 isLiked = false
             } else {
-                heartButton.setImageResource(R.drawable.kalpkirmizi)
-                Log.e("button","tiklandi kirmizi kalp")
+                heartButton.setImageResource(R.drawable.heart_black)
                 isLiked = true
             }
-
-
             }
-
         }
     }
 }

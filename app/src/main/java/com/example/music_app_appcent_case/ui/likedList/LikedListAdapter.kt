@@ -35,7 +35,7 @@ class LikedListAdapter(private val products: List<LikedSongs>) : RecyclerView.Ad
         private var isLiked = false
 
         fun bind(product: ListIterator<LikedSongs>) {
-            //artistName.text = product.
+            //artistName.text = product
             /*Glide.with(productImageView.getContext())
                 .load(product.md5_image)
                 .into(productImageView)*/

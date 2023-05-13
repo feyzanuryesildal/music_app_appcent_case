@@ -11,15 +11,11 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class GenreViewModel : ViewModel(){
-    //var ProductDataList = MutableLiveData<List<ProductsModel>>()
-    /*val productList: MutableLiveData<List<ProductsModel>> by lazy {
-        MutableLiveData<List<ProductsModel>>()
-    }*/
-    private val productList = MutableLiveData<GenreModel> ()
-    val productListData: LiveData<GenreModel> get() = productList
+    private val genreList = MutableLiveData<GenreModel> ()
+    val genreListData: LiveData<GenreModel> get() = genreList
+
     fun getApiData(){
 
-        //val retrofitInstance = RetrofitInstance.getRetrofitInstance().create(ProductService::class.java)
         ApiInstance.getRetrofitInstance().getDataFromApi().enqueue(object :
             Callback<GenreModel> {
             override fun onResponse(
@@ -27,14 +23,13 @@ class GenreViewModel : ViewModel(){
                 response: Response<GenreModel>
             ) {
                 if (response.isSuccessful) {
-                    Log.d("Service", "Succses")
+                    Log.d("Service", "Succses Genre ")
                     response.body()?.let {
                         Log.d("Service", "Body")
-                        productList.postValue(it)
+                        genreList.postValue(it)
                     }?: kotlin.run {
                         Log.d("Service", "Empty Body")
                     }
-
                 } else {
                     Log.d("Service", "Failed")
                 }
@@ -43,10 +38,7 @@ class GenreViewModel : ViewModel(){
 
             override fun onFailure(call: Call<GenreModel>, t: Throwable) {
                 Log.d("Service", "Failed: ${t.message}")
-
             }
-
         })
-
     }
 }

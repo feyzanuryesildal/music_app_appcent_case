@@ -1,7 +1,6 @@
 package com.example.music_app_appcent_case.ui.genreDetail
 
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +13,7 @@ import com.example.music_app_appcent_case.R
 import com.example.music_app_appcent_case.network.model.Data
 import com.example.music_app_appcent_case.network.model.GenreModel
 
-class GenreDetailAdapter (private val products: GenreModel) : RecyclerView.Adapter<GenreDetailAdapter.ViewHolder>() {
+class GenreDetailAdapter (private val genreDetail: GenreModel) : RecyclerView.Adapter<GenreDetailAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.genre_detay_item, parent, false)
@@ -22,31 +21,27 @@ class GenreDetailAdapter (private val products: GenreModel) : RecyclerView.Adapt
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val product = products.data[position]
+        val product = genreDetail.data[position]
         holder.bind(product)
     }
 
-    override fun getItemCount(): Int = products.data.size
+    override fun getItemCount(): Int = genreDetail.data.size
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val productImageView: ImageView = itemView.findViewById(R.id.image2)
+        private val genreImageView: ImageView = itemView.findViewById(R.id.image2)
         private val artistName: TextView = itemView.findViewById(R.id.textView3)
 
-        fun bind(product: Data) {
-            artistName.text = product.name
-            Glide.with(productImageView.getContext())
-                .load(product.picture_medium)
-                .into(productImageView)
+        fun bind(genreDetailData: Data) {
+            artistName.text = genreDetailData.name
+            Glide.with(genreImageView.getContext())
+                .load(genreDetailData.picture_medium)
+                .into(genreImageView)
 
-            productImageView.isClickable = true
-            productImageView.setOnClickListener {
-                Log.e("kontrol","tıklandı") // çalıştı
+            genreImageView.isClickable = true
+            genreImageView.setOnClickListener {
                 val intent = Intent(itemView.context, ArtistDetailActivity::class.java)
-                intent.putExtra("artist.id", product.id)
+                intent.putExtra("artist.id", genreDetailData.id)
                 itemView.context.startActivity(intent)
-                Log.e("kontrol",product.name)
-                Log.e("kontrol","${product.id}")
-
             }
 
         }

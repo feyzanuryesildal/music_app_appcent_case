@@ -12,12 +12,10 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ArtistDetailViewModel : ViewModel(){
-    private val productList = MutableLiveData<ArtistModel> ()
-    val productListData: LiveData<ArtistModel> get() = productList
-
+    private val artistDetailList = MutableLiveData<ArtistModel> ()
+    val artistDetailListData: LiveData<ArtistModel> get() = artistDetailList
 
     fun getArtistDetayApiData(id: Int){
-
         ApiInstance.getRetrofitInstance().getArtistDetayDataFromApi(id).enqueue(object :
             Callback<ArtistModel> {
             override fun onResponse(
@@ -25,26 +23,21 @@ class ArtistDetailViewModel : ViewModel(){
                 response: Response<ArtistModel>
             ) {
                 if (response.isSuccessful) {
-                    Log.d("Service", "Succsesaaaaaaaaaaaaaaaaaa")
+                    Log.d("Service", "Succses Artist Detail")
                     response.body()?.let {
                         Log.d("Service", "Body")
-                        productList.postValue(it)
+                        artistDetailList.postValue(it)
                     }?: kotlin.run {
                         Log.d("Service", "Empty Body")
                     }
-
                 } else {
                     Log.d("Service", "Failed")
                 }
-
             }
-
             override fun onFailure(call: Call<ArtistModel>, t: Throwable) {
                 Log.d("Service", "Failed: ${t.message}")
 
             }
-
         })
-
     }
 }
