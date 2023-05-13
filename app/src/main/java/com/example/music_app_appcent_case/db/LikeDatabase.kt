@@ -1,5 +1,5 @@
 package com.example.music_app_appcent_case.db
-/*
+
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 
 
 @Database(
-    entities = [Like::class],
+    entities = [LikedSongs::class],
     version = 1,
     exportSchema = false
 )
@@ -26,11 +26,11 @@ abstract class LikeDatabase : RoomDatabase() {
                 val newInstance = Room.databaseBuilder(
                     context,
                     LikeDatabase::class.java,
-                    "note_database"
+                    "like_database"
                 ).build()
                 instance = newInstance
                 newInstance
             }
         }
     }
-}*/
+}

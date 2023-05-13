@@ -3,20 +3,20 @@ package com.example.music_app_appcent_case.db
 import androidx.lifecycle.LiveData
 import androidx.room.*
 
-/*
+
 @Dao
 interface LikeDao {
 
     @Insert
-    suspend fun addLike(like: Like)
+     fun addLike(like: LikedSongs)
 
     @Delete
-    suspend fun deleteLike(like: Like)
+     fun deleteLike(like: LikedSongs)
 
     @Update
-    suspend fun updateLike(like: Like)
+     fun updateLike(like: LikedSongs)
 
     @Query("Select * from $tableName order by id ASC")
-    fun getAllLikes(): LiveData<List<Like>>
+    fun getAllLikes(): LiveData<List<LikedSongs>>
 
-}*/
+}

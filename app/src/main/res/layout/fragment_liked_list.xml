@@ -3,12 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragmentView.LikedListFragment">
+    tools:context=".ui.likedList.LikedListFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Liked List fragment" />
-
+        android:id="@+id/likedListRecyclerView"
+        tools:listitem="@layout/fragment_liked_list_item"/>
 </FrameLayout>

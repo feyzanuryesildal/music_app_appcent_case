@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+
+    android:id="@+id/card_view_liked_list"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp"
+    android:layout_margin="5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageViewLikedList"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="233dp"
+            android:src="@drawable/kalprenksiz"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageButtonKalp2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".3" />
+
+        <TextView
+            android:id="@+id/artistNameLikedList"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:fontFamily="sans-serif"
+            android:text="This is a "
+            android:textColor="#212121"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageViewLikedList"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/musicLongLikedList"
+            android:layout_width="38dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif"
+            android:text="This "
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/artistNameLikedList"
+            app:layout_constraintTop_toTopOf="@+id/artistNameLikedList" />
+
+        <ImageButton
+            android:id="@+id/imageButtonKalp2"
+            android:layout_width="47dp"
+            android:layout_height="49dp"
+            android:layout_marginEnd="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageViewLikedList"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/kalprenksiz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

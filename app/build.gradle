@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-android-extensions'
     id 'kotlin-kapt'
 }
 
@@ -70,13 +69,19 @@ dependencies {
     androidTestImplementation "androidx.room:room-testing:2.5.1"
 
     // Lifecycle components
-    //implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
-    //implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
-    //implementation "androidx.lifecycle:lifecycle-common-java8:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.6.1"
 
 
-    //implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
-    //api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
+
+    //implementation "androidx.room:room-ktx:2.5.1"
+
+    //def lifecycle_version = "2.4.0"
+    //implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+
 
 
 
