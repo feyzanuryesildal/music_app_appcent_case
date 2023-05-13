@@ -41,6 +41,8 @@ class GenreDetailAdapter (private val genreDetail: GenreModel) : RecyclerView.Ad
             genreImageView.setOnClickListener {
                 val intent = Intent(itemView.context, ArtistDetailActivity::class.java)
                 intent.putExtra("artist.id", genreDetailData.id)
+                intent.putExtra("artist.name", genreDetailData.name)
+                intent.putExtra("picture_medium", genreDetailData.picture_medium)
                 itemView.context.startActivity(intent)
             }
 

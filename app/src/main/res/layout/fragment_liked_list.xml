@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/my_linear"
+    android:gravity="center_horizontal"
     tools:context=".ui.likedList.LikedListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/likedListRecyclerView"
-        tools:listitem="@layout/fragment_liked_list_item"/>
-</FrameLayout>
+        tools:listitem="@layout/fragment_liked_list_item"
+        />
+</LinearLayout>

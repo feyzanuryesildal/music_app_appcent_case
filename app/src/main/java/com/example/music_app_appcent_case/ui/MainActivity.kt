@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         replaceFragment(GenreListFragment())
+
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
 

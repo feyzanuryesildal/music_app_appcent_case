@@ -18,10 +18,17 @@ class GenreDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_genre_detay)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        setTitle("Sanatçılar")
+
 
         val gelenVeriGenreDetail = intent.getIntExtra("product.id", 0)
-
+        val genreDetailName = intent.getStringExtra("product.name")
+        setTitle("${genreDetailName}")
+        if(genreDetailName != null){
+            Log.d("product name", "${genreDetailName}")
+        }else
+        {
+            Log.d("product name", "null product name")
+        }
         genreDetayRecyclerView = findViewById<RecyclerView>(R.id.recyclerView2)
         genreDetayRecyclerView.layoutManager =
             GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false)

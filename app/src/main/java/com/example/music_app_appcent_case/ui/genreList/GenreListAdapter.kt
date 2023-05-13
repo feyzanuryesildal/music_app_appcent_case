@@ -40,13 +40,10 @@ class GenreListAdapter (private val genre: GenreModel) : RecyclerView.Adapter<Ge
 
             genreImageView.isClickable = true
             genreImageView.setOnClickListener {
-                Log.e("kontrol","tıklandı") // çalıştı
                 val intent = Intent(itemView.context, GenreDetailActivity::class.java)
                 intent.putExtra("product.id", genreData.id)
+                intent.putExtra("product.name", genreData.name)
                 itemView.context.startActivity(intent)
-                Log.e("kontrol",genreData.name)
-                Log.e("kontrol","${genreData.id}")
-
             }
 
         }
