@@ -3,8 +3,7 @@
 https://api.deezer.com api ile MVVM mimarisine uygun olarak geliştirdiğim müzik uygulaması.
 
 
-### My Awesome Video
 
-Watch my awesome video here:
 
-<iframe width="560" height="315" src="https://youtu.be/RNvDEkFnaDQ" frameborder="0" allowfullscreen></iframe>
+https://github.com/feyzanuryesildal/music_app_appcent_case/assets/57413289/0c550880-54e8-41c7-a25a-153256d01a99
+
