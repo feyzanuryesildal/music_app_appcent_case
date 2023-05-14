@@ -5,5 +5,6 @@ https://api.deezer.com api ile MVVM mimarisine uygun olarak geliştirdiğim müz
 
 
 
-https://github.com/feyzanuryesildal/music_app_appcent_case/assets/57413289/0c550880-54e8-41c7-a25a-153256d01a99
+
+https://github.com/feyzanuryesildal/music_app_appcent_case/assets/57413289/a11a0328-6ff5-49d6-8cb8-d917dd4dd255
 
